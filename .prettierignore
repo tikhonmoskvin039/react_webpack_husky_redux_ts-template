@@ -1,0 +1,10 @@
+# Ignore artifacts:
+dist
+build
+
+# Other files
+.env*
+.DS_Store
+*.pem
+*.log
+
