@@ -1,0 +1,1 @@
+# react_webpack_husky_redux_ts-template
