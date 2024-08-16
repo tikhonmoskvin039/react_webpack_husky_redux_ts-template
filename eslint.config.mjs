@@ -6,7 +6,9 @@ import eslintReactHooks from 'eslint-plugin-react-hooks';
 import eslintReactRefresh from 'eslint-plugin-react-refresh';
 import prettierPlugin from 'eslint-plugin-prettier';
 import eslintConfigPrettier from 'eslint-config-prettier';
-import jsxA11AllyPlugin from 'eslint-plugin-jsx-a11y'
+import jsxA11AllyPlugin from 'eslint-plugin-jsx-a11y';
+
+// TODO Включите поддержку flat config esLint в вашей IDE
 
 // ! Даст подсказки для типов из конфига
 /**@type {import('eslint').Linter.Config[]} */
@@ -102,10 +104,10 @@ export default [
   {
     plugins: {
       'react-hooks': eslintReactHooks,
-      'react': pluginReact.configs.flat.recommended,
+      react: pluginReact.configs.flat.recommended,
       'react-refresh': eslintReactRefresh,
       prettier: prettierPlugin,
-      'jsx-a11y': jsxA11AllyPlugin
+      'jsx-a11y': jsxA11AllyPlugin,
     },
   },
   {
@@ -118,6 +120,7 @@ export default [
         ...globals.browser,
         ...globals.es2024,
       },
+      parserOptions: pluginReact.configs.recommended.parserOptions,
     },
   },
   pluginJs.configs.recommended,
