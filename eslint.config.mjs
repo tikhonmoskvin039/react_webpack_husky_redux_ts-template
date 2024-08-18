@@ -12,13 +12,13 @@ import jsxA11AllyPlugin from 'eslint-plugin-jsx-a11y';
 
 // ! Даст подсказки для типов из конфига
 /**@type {import('eslint').Linter.Config[]} */
-export default [
+export default tseslint.config(
   {
     files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
     rules: {
       ...eslintConfigPrettier.rules,
-      'prefer-const': 'error',
       semi: 'error',
+      "@typescript-eslint/no-explicit-any": 2,
       'react/react-in-jsx-scope': ['off'],
       'react/jsx-uses-react': ['off'],
       'no-unused-vars': 'warn',
@@ -103,8 +103,9 @@ export default [
   },
   {
     plugins: {
-      'react-hooks': eslintReactHooks,
+      '@typescript-eslint': tseslint.plugin,
       react: pluginReact.configs.flat.recommended,
+      'react-hooks': eslintReactHooks,
       'react-refresh': eslintReactRefresh,
       prettier: prettierPlugin,
       'jsx-a11y': jsxA11AllyPlugin,
@@ -120,9 +121,12 @@ export default [
         ...globals.browser,
         ...globals.es2024,
       },
-      parserOptions: pluginReact.configs.recommended.parserOptions,
+      parserOptions: [
+        pluginReact.configs.recommended.parserOptions,
+        'tsconfig.json',
+      ],
     },
   },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
-];
+);
