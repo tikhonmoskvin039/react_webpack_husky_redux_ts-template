@@ -18,7 +18,7 @@ export default tseslint.config(
     rules: {
       ...eslintConfigPrettier.rules,
       semi: 'error',
-      "@typescript-eslint/no-explicit-any": 2,
+      '@typescript-eslint/no-explicit-any': 2,
       'react/react-in-jsx-scope': ['off'],
       'react/jsx-uses-react': ['off'],
       'no-unused-vars': 'warn',
@@ -65,6 +65,7 @@ export default tseslint.config(
       'react/no-unescaped-entities': 0,
       'react/function-component-definition': 0,
       'jsx-a11y/accessible-emoji': 0,
+      'arrow-body-style': ['error', 'as-needed'],
       'jsx-a11y/label-has-associated-control': [
         'error',
         {
