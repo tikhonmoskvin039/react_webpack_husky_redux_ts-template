@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import type { FC } from 'react';
 import reactIcon from '@/assets/react.png';
 import typescriptIcon from '@/assets/typescript.png';
 import webpackIcon from '@/assets/webpack.png';

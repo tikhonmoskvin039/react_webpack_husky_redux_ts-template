@@ -114,6 +114,12 @@ export default tseslint.config(
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'warn',
       '@typescript-eslint/comma-dangle': ['off'],
+      '@typescript-eslint/consistent-type-imports': [
+        'error',
+        {
+          prefer: 'type-imports',
+        },
+      ],
       '@stylistic/jsx/jsx-self-closing-comp': [
         'error',
         {
