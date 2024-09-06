@@ -7,6 +7,10 @@ import eslintReactRefresh from 'eslint-plugin-react-refresh';
 import prettierPlugin from 'eslint-plugin-prettier';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import jsxA11AllyPlugin from 'eslint-plugin-jsx-a11y';
+import stylisticJs from '@stylistic/eslint-plugin-js';
+import stylisticJsx from '@stylistic/eslint-plugin-jsx';
+import stylisticTs from '@stylistic/eslint-plugin-ts';
+import parserTs from '@typescript-eslint/parser';
 
 // TODO Включите поддержку flat config esLint в вашей IDE
 
@@ -100,8 +104,17 @@ export default tseslint.config(
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'warn',
       '@typescript-eslint/comma-dangle': ['off'],
+      '@stylistic/jsx/jsx-self-closing-comp': [
+        'error',
+        {
+          component: true,
+          html: true,
+        },
+      ],
+      '@stylistic/ts/indent': ['error', 2],
     },
   },
+
   {
     plugins: {
       '@typescript-eslint': tseslint.plugin,
@@ -110,6 +123,9 @@ export default tseslint.config(
       'react-refresh': eslintReactRefresh,
       prettier: prettierPlugin,
       'jsx-a11y': jsxA11AllyPlugin,
+      '@stylistic/js': stylisticJs,
+      '@stylistic/jsx': stylisticJsx,
+      '@stylistic/ts': stylisticTs,
     },
   },
   {
@@ -125,6 +141,7 @@ export default tseslint.config(
       parserOptions: [
         pluginReact.configs.recommended.parserOptions,
         'tsconfig.json',
+        parserTs.parse,
       ],
     },
   },
