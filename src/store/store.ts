@@ -1,8 +1,8 @@
 import { configureStore, Tuple } from '@reduxjs/toolkit';
-import createSagaMiddleware from 'redux-saga';
 import logger from 'redux-logger';
-import { rootSaga } from './rootSaga';
+import createSagaMiddleware from 'redux-saga';
 import { rootReducer } from './rootReducer';
+import { rootSaga } from './rootSaga';
 
 const sagaMiddleware = createSagaMiddleware();
 

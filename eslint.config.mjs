@@ -6,6 +6,7 @@ import eslintReactHooks from 'eslint-plugin-react-hooks';
 import eslintReactRefresh from 'eslint-plugin-react-refresh';
 import prettierPlugin from 'eslint-plugin-prettier';
 import autofixPlugin from 'eslint-plugin-autofix';
+import importPlugin from 'eslint-plugin-import';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import jsxA11AllyPlugin from 'eslint-plugin-jsx-a11y';
 import stylisticJs from '@stylistic/eslint-plugin-js';
@@ -111,6 +112,28 @@ export default tseslint.config(
           aspects: ['invalidHref'],
         },
       ],
+      'import/order': [
+        'error',
+        {
+          groups: [
+            'builtin',
+            'external',
+            'parent',
+            'sibling',
+            'index',
+            'object',
+            'type',
+          ],
+          pathGroups: [
+            {
+              pattern: '@/**/**',
+              group: 'parent',
+              position: 'before',
+            },
+          ],
+          alphabetize: { order: 'asc' },
+        },
+      ],
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'warn',
       '@typescript-eslint/comma-dangle': ['off'],
@@ -143,6 +166,7 @@ export default tseslint.config(
       '@stylistic/jsx': stylisticJsx,
       '@stylistic/ts': stylisticTs,
       autofix: autofixPlugin,
+      import: importPlugin,
     },
   },
   {
