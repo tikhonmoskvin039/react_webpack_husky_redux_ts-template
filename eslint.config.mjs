@@ -5,6 +5,7 @@ import pluginReact from 'eslint-plugin-react';
 import eslintReactHooks from 'eslint-plugin-react-hooks';
 import eslintReactRefresh from 'eslint-plugin-react-refresh';
 import prettierPlugin from 'eslint-plugin-prettier';
+import autofixPlugin from 'eslint-plugin-autofix';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import jsxA11AllyPlugin from 'eslint-plugin-jsx-a11y';
 import stylisticJs from '@stylistic/eslint-plugin-js';
@@ -26,6 +27,15 @@ export default tseslint.config(
       'react/react-in-jsx-scope': ['off'],
       'react/jsx-uses-react': ['off'],
       'no-unused-vars': 'warn',
+      'autofix/no-debugger': 'error',
+      'autofix/no-unused-vars': [
+        'error',
+        {
+          argsIgnorePattern: '^_',
+          ignoreRestSiblings: true,
+          destructuredArrayIgnorePattern: '^_',
+        },
+      ],
       'no-await-in-loop': 0,
       'no-undef': 0,
       'no-return-assign': ['error', 'except-parens'],
@@ -126,6 +136,7 @@ export default tseslint.config(
       '@stylistic/js': stylisticJs,
       '@stylistic/jsx': stylisticJsx,
       '@stylistic/ts': stylisticTs,
+      autofix: autofixPlugin,
     },
   },
   {
