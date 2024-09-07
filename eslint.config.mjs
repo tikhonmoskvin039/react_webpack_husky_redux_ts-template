@@ -13,6 +13,7 @@ import stylisticJs from '@stylistic/eslint-plugin-js';
 import stylisticJsx from '@stylistic/eslint-plugin-jsx';
 import stylisticTs from '@stylistic/eslint-plugin-ts';
 import parserTs from '@typescript-eslint/parser';
+import { fixupPluginRules } from '@eslint/compat';
 
 // TODO Включите поддержку flat config esLint в вашей IDE
 
@@ -22,6 +23,7 @@ export default tseslint.config(
   {
     files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
     rules: {
+      ...eslintReactHooks.configs.recommended.rules,
       ...eslintConfigPrettier.rules,
       semi: 'error',
       '@typescript-eslint/no-explicit-any': 2,
@@ -134,8 +136,8 @@ export default tseslint.config(
           alphabetize: { order: 'asc' },
         },
       ],
-      'react-hooks/rules-of-hooks': 'error',
-      'react-hooks/exhaustive-deps': 'warn',
+      'react-hooks/rules-of-hooks': ['error'],
+      'react-hooks/exhaustive-deps': ['error'],
       '@typescript-eslint/comma-dangle': ['off'],
       '@typescript-eslint/consistent-type-imports': [
         'error',
@@ -158,7 +160,7 @@ export default tseslint.config(
     plugins: {
       '@typescript-eslint': tseslint.plugin,
       react: pluginReact.configs.flat.recommended,
-      'react-hooks': eslintReactHooks,
+      'react-hooks': fixupPluginRules(eslintReactHooks),
       'react-refresh': eslintReactRefresh,
       prettier: prettierPlugin,
       'jsx-a11y': jsxA11AllyPlugin,

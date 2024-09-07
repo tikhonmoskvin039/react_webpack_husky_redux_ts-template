@@ -1,10 +1,10 @@
+import { type FC } from 'react';
 import huskyIcon from '@/assets/husky.png';
 import reactIcon from '@/assets/react.png';
 import reduxIcon from '@/assets/redux.png';
 import typescriptIcon from '@/assets/typescript.png';
 import webpackIcon from '@/assets/webpack.png';
 import * as styles from './App.module.scss';
-import type { FC } from 'react';
 
 export const App: FC = () => (
   <div className={styles.container}>
