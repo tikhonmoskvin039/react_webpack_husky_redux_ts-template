@@ -57,6 +57,22 @@ export default tseslint.config(
         'LabeledStatement',
         'WithStatement',
       ],
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            {
+              group: ['../../', '../../../', '../../../../'],
+              message: 'Importing from parent directories is not allowed.',
+            },
+            {
+              group: ['^\\.\\.\\.(\\/|$)'],
+              message:
+                'Importing from directories above two levels is not allowed.',
+            },
+          ],
+        },
+      ],
       'prefer-const': [
         'error',
         {
